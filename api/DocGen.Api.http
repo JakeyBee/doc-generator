@@ -1,0 +1,19 @@
+@host = http://localhost:5258
+
+### Should return 200 with fake docs
+POST {{host}}/api/docs
+Content-Type: application/json
+
+{
+  "code": "int Add(int a, int b) => a + b;",
+  "language": "csharp"
+}
+
+### Should return 400
+POST {{host}}/api/docs
+Content-Type: application/json
+
+{
+  "code": "",
+  "language": "csharp"
+}
